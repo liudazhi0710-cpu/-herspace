@@ -1,0 +1,262 @@
+{\rtf1\ansi\ansicpg936\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red255\green255\blue254;
+\red14\green110\blue109;\red144\green1\blue18;\red15\green112\blue1;\red19\green118\blue70;\red191\green28\blue37;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;\cssrgb\c100000\c100000\c99608;
+\cssrgb\c0\c50196\c50196;\cssrgb\c63922\c8235\c8235;\cssrgb\c0\c50196\c0;\cssrgb\c3529\c52549\c34510;\cssrgb\c80392\c19216\c19216;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 React\cf0 \strokec2 , \{ useState, useEffect, useRef \} \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 'react'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 Navbar\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/Navbar'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 Hero\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/Hero'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 FeatureCard\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/FeatureCard'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 GeminiCompanion\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/GeminiCompanion'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 MessageBoard\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/MessageBoard'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 Feminism101\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/Feminism101'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 PhysiologicalMuseum\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/PhysiologicalMuseum'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 MeditationIsland\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/MeditationIsland'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \cf5 \strokec5 IslandCommunity\cf0 \strokec2  \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './components/IslandCommunity'\cf0 \strokec2 ;\cb1 \
+\cf3 \cb4 \strokec3 import\cf0 \strokec2  \{ \cf5 \strokec5 ViewState\cf0 \strokec2  \} \cf3 \strokec3 from\cf0 \strokec2  \cf6 \strokec6 './types'\cf0 \strokec2 ;\cb1 \
+\
+\cf3 \cb4 \strokec3 const\cf0 \strokec2  \cf5 \strokec5 SectionHeader\cf0 \strokec2 : \cf5 \strokec5 React\cf0 \strokec2 .\cf5 \strokec5 FC\cf0 \strokec2 <\{ title: \cf3 \strokec3 string\cf0 \strokec2 ; subtitle: \cf3 \strokec3 string\cf0 \strokec2 ; id: \cf3 \strokec3 string\cf0 \strokec2 ; reverse?: \cf3 \strokec3 boolean\cf0 \strokec2  \}> = (\{ title, subtitle, id, reverse \}) => (\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4   <div id=\{id\} className=\{\cf6 \strokec6 `flex items-end space-x-4 mb-10 pt-16 \cf0 \strokec2 $\{reverse ? \cf6 \strokec6 'flex-row-reverse'\cf0 \strokec2  : \cf6 \strokec6 ''\cf0 \strokec2 \}\cf6 \strokec6 `\cf0 \strokec2 \}>\cb1 \
+\cb4     <h2 className=\{\cf6 \strokec6 `text-3xl md:text-4xl font-serif font-bold text-forest \cf0 \strokec2 $\{reverse ? \cf6 \strokec6 'ml-4'\cf0 \strokec2  : \cf6 \strokec6 ''\cf0 \strokec2 \}\cf6 \strokec6 `\cf0 \strokec2 \}>\{title\}</h2>\cb1 \
+\cb4     <span className=\cf6 \strokec6 "text-gold font-serif italic mb-1"\cf0 \strokec2 >\{subtitle\}</span>\cb1 \
+\cb4     <div className=\cf6 \strokec6 "flex-grow h-px bg-forest/10 mb-2"\cf0 \strokec2 ></div>\cb1 \
+\cb4   </div>\cb1 \
+\cb4 );\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 const\cf0 \strokec2  \cf5 \strokec5 App\cf0 \strokec2 : \cf5 \strokec5 React\cf0 \strokec2 .\cf5 \strokec5 FC\cf0 \strokec2  = () => \{\cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4   \cf3 \strokec3 const\cf0 \strokec2  [activeView, setActiveView] = useState<\cf5 \strokec5 ViewState\cf0 \strokec2 >(\cf6 \strokec6 'home'\cf0 \strokec2 );\cb1 \
+\cb4   \cf3 \strokec3 const\cf0 \strokec2  scrollPositions = useRef<\{ [key: \cf3 \strokec3 string\cf0 \strokec2 ]: \cf3 \strokec3 number\cf0 \strokec2  \}>(\{\});\cb1 \
+\
+\cb4   \cf3 \strokec3 const\cf0 \strokec2  navigateTo = (view: \cf5 \strokec5 ViewState\cf0 \strokec2 ) => \{\cb1 \
+\cb4     \cf7 \strokec7 // If we're already in the target view, do nothing\cf0 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 if\cf0 \strokec2  (activeView === view) \cf3 \strokec3 return\cf0 \strokec2 ;\cb1 \
+\
+\cb4     \cf7 \strokec7 // Save current scroll position before leaving any view\cf0 \cb1 \strokec2 \
+\cb4     scrollPositions.current[activeView] = window.scrollY;\cb1 \
+\cb4     \cb1 \
+\cb4     setActiveView(view);\cb1 \
+\cb4     \cb1 \
+\cb4     \cf7 \strokec7 // When switching to a new view, decide where to put the scroll\cf0 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 if\cf0 \strokec2  (view === \cf6 \strokec6 'home'\cf0 \strokec2 ) \{\cb1 \
+\cb4       \cf7 \strokec7 // Small delay to ensure the component has rendered the home layout\cf0 \cb1 \strokec2 \
+\cb4       requestAnimationFrame(() => \{\cb1 \
+\cb4         \cf3 \strokec3 const\cf0 \strokec2  savedPos = scrollPositions.current[\cf6 \strokec6 'home'\cf0 \strokec2 ] || \cf8 \strokec8 0\cf0 \strokec2 ;\cb1 \
+\cb4         window.scrollTo(\{\cb1 \
+\cb4           top: savedPos,\cb1 \
+\cb4           behavior: \cf6 \strokec6 'auto'\cf0 \strokec2  \cf7 \strokec7 // Instant jump to avoid "sliding" feel when returning\cf0 \cb1 \strokec2 \
+\cb4         \});\cb1 \
+\cb4       \});\cb1 \
+\cb4     \} \cf3 \strokec3 else\cf0 \strokec2  \{\cb1 \
+\cb4       \cf7 \strokec7 // For all sub-pages, always start at the top\cf0 \cb1 \strokec2 \
+\cb4       window.scrollTo(\cf8 \strokec8 0\cf0 \strokec2 , \cf8 \strokec8 0\cf0 \strokec2 );\cb1 \
+\cb4     \}\cb1 \
+\cb4   \};\cb1 \
+\
+\cb4   \cf3 \strokec3 const\cf0 \strokec2  handleBack = () => navigateTo(\cf6 \strokec6 'home'\cf0 \strokec2 );\cb1 \
+\
+\cb4   \cf3 \strokec3 if\cf0 \strokec2  (activeView === \cf6 \strokec6 'feminism101'\cf0 \strokec2 ) \cf3 \strokec3 return\cf0 \strokec2  <\cf5 \strokec5 Feminism101\cf0 \strokec2  onBack=\{handleBack\} />;\cb1 \
+\cb4   \cf3 \strokec3 if\cf0 \strokec2  (activeView === \cf6 \strokec6 'museum'\cf0 \strokec2 ) \cf3 \strokec3 return\cf0 \strokec2  <\cf5 \strokec5 PhysiologicalMuseum\cf0 \strokec2  onBack=\{handleBack\} />;\cb1 \
+\cb4   \cf3 \strokec3 if\cf0 \strokec2  (activeView === \cf6 \strokec6 'meditation'\cf0 \strokec2 ) \cf3 \strokec3 return\cf0 \strokec2  <\cf5 \strokec5 MeditationIsland\cf0 \strokec2  onBack=\{handleBack\} />;\cb1 \
+\cb4   \cf3 \strokec3 if\cf0 \strokec2  (activeView === \cf6 \strokec6 'community'\cf0 \strokec2 ) \cf3 \strokec3 return\cf0 \strokec2  <\cf5 \strokec5 IslandCommunity\cf0 \strokec2  onBack=\{handleBack\} />;\cb1 \
+\
+\cb4   \cf3 \strokec3 return\cf0 \strokec2  (\cb1 \
+\cb4     <div className=\cf6 \strokec6 "min-h-screen flex flex-col scroll-smooth"\cf0 \strokec2 >\cb1 \
+\cb4       <\cf5 \strokec5 Navbar\cf0 \strokec2  />\cb1 \
+\cb4       \cb1 \
+\cb4       <main className=\cf6 \strokec6 "flex-grow"\cf0 \strokec2 >\cb1 \
+\cb4         <\cf5 \strokec5 Hero\cf0 \strokec2  onJoinCommunity=\{() => navigateTo(\cf6 \strokec6 'community'\cf0 \strokec2 )\} />\cb1 \
+\cb4         \cb1 \
+\cb4         <section className=\cf6 \strokec6 "py-24 px-6 md:px-12 bg-cream overflow-hidden"\cf0 \strokec2 >\cb1 \
+\cb4           <div className=\cf6 \strokec6 "max-w-7xl mx-auto"\cf0 \strokec2 >\cb1 \
+\cb4             \cb1 \
+\cb4             \{\cf7 \strokec7 /* 1. \uc0\u35748 \u30693 \u19982 \u35273 \u37266  */\cf0 \strokec2 \}\cb1 \
+\cb4             <div className=\cf6 \strokec6 "mb-32"\cf0 \strokec2 >\cb1 \
+\cb4               <\cf5 \strokec5 SectionHeader\cf0 \strokec2  title=\cf6 \strokec6 "\uc0\u35748 \u30693 \u19982 \u35273 \u37266 "\cf0 \strokec2  subtitle=\cf6 \strokec6 "Knowledge & Rights"\cf0 \strokec2  id=\cf6 \strokec6 "knowledge"\cf0 \strokec2  />\cb1 \
+\cb4               <div className=\cf6 \strokec6 "grid grid-cols-1 md:grid-cols-3 gap-8"\cf0 \strokec2 >\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u22899 \u24615 \u20027 \u20041 \u21490 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u29702 \u35770 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56534 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u20174 \u20105 \u21462 \u25237 \u31080 \u26435 \u21040 \u24403 \u20195 \u24179 \u26435 \u65292 \u22238 \u26395 \u37027 \u26465 \u27874 \u28572 \u22766 \u38420 \u30340 \u33258 \u30001 \u20043 \u36335 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                   onClick=\{() => navigateTo(\cf6 \strokec6 'feminism101'\cf0 \strokec2 )\}\cb1 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u26680 \u24515 \u35789 \u26465 \u24211 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u35748 \u30693 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56589 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u28145 \u24230 \u35299 \u26512 \u65306 \u20957 \u35270 \u12289 \u27597 \u32844 \u24809 \u32602 \u12289 \u21388 \u22899 \u30151 \u31561 \u65292 \u25286 \u35299 \u38544 \u24418 \u30340 \u19981 \u24179 \u31561 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u26435 \u21033 \u19982 \u27861 \u24459 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u32500 \u26435 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u9878 \u65039 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u32844 \u22330 \u24615 \u39578 \u25200 \u32500 \u26435 \u25351 \u21335 \u12289 \u23130 \u23035 \u27861 \u31185 \u26222 \u12289 \u21453 \u23478 \u26292 \u25163 \u20876 \u12290 \u20026 \u20320 \u25552 \u20379 \u38112 \u30002 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4               </div>\cb1 \
+\cb4             </div>\cb1 \
+\
+\cb4             \{\cf7 \strokec7 /* 2. \uc0\u36523 \u24515 \u19982 \u20581 \u24247  */\cf0 \strokec2 \}\cb1 \
+\cb4             <div className=\cf6 \strokec6 "mb-32"\cf0 \strokec2 >\cb1 \
+\cb4               <\cf5 \strokec5 SectionHeader\cf0 \strokec2  title=\cf6 \strokec6 "\uc0\u36523 \u24515 \u19982 \u20581 \u24247 "\cf0 \strokec2  subtitle=\cf6 \strokec6 "Body & Soul"\cf0 \strokec2  id=\cf6 \strokec6 "body-soul"\cf0 \strokec2  reverse />\cb1 \
+\cb4               <div className=\cf6 \strokec6 "grid grid-cols-1 md:grid-cols-3 gap-8"\cf0 \strokec2 >\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u36523 \u20307 \u21338 \u29289 \u24535 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u20581 \u24247 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55356 \u57151 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u32463 \u26399 \u21435 \u32670 \u32827 \u12289 \u29983 \u32946 \u36873 \u25321 \u26435 \u12289 \u26356 \u24180 \u26399 \u20581 \u24247 \u31649 \u29702 \u12290 \u22374 \u28982 \u25317 \u25265 \u36523 \u20307 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                   onClick=\{() => navigateTo(\cf6 \strokec6 'museum'\cf0 \strokec2 )\}\cb1 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u24515 \u29702 \u36991 \u39118 \u28207 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u24515 \u29702 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55358 \u56792 \u8205 \u9792 \u65039 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u25298 \u32477 \u31934 \u31070 \u20869 \u32791 \u65292 \u22312 \u32439 \u25200 \u30340 \u19990 \u30028 \u20013 \u24314 \u31435 \u23646 \u20110 \u33258 \u24049 \u30340 \u20869 \u22312 \u31209 \u24207 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                   onClick=\{() => navigateTo(\cf6 \strokec6 'meditation'\cf0 \strokec2 )\}\cb1 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u36816 \u21160 \u19982 \u21147 \u37327 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u25484 \u25511 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55356 \u57283 \u8205 \u9792 \u65039 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u22899 \u24615 \u21147 \u37327 \u35757 \u32451 \u20837 \u38376 \u12289 \u36816 \u21160 \u20013 \u30340 \u24615 \u21035 \u20559 \u35265 \u25506 \u35752 \u12290 \u24863 \u21463 \u24847 \u24535 \u30340 \u21147 \u37327 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4               </div>\cb1 \
+\cb4             </div>\cb1 \
+\
+\cb4             \{\cf7 \strokec7 /* 3. \uc0\u32844 \u22330 \u19982 \u36130 \u21153  */\cf0 \strokec2 \}\cb1 \
+\cb4             <div className=\cf6 \strokec6 "mb-32"\cf0 \strokec2 >\cb1 \
+\cb4               <\cf5 \strokec5 SectionHeader\cf0 \strokec2  title=\cf6 \strokec6 "\uc0\u32844 \u22330 \u19982 \u36130 \u21153 "\cf0 \strokec2  subtitle=\cf6 \strokec6 "Career & Wealth"\cf0 \strokec2  id=\cf6 \strokec6 "life-growth"\cf0 \strokec2  />\cb1 \
+\cb4               <div className=\cf6 \strokec6 "grid grid-cols-1 md:grid-cols-3 gap-8"\cf0 \strokec2 >\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u32844 \u19994 \u23454 \u39564 \u23460 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u32844 \u19994 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56508 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u34218 \u36164 \u35848 \u21028 \u25216 \u24039 \u12289 \u32844 \u22330 \u22825 \u33457 \u26495 \u31361 \u30772 \u25925 \u20107 \u12290 \u25506 \u35752 \u36827 \u38454 \u30340 \u21487 \u33021 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u36130 \u23500 \u29420 \u31435 \u35838 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u29702 \u36130 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55358 \u56985 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u22899 \u24615 \u25237 \u36164 \u20837 \u38376 \u12289 \u36130 \u21153 \u23433 \u20840 \u24863 \u24314 \u31435 \u12290 \u37329 \u38065 \u26159 \u33258 \u30001 \u30340 \u24213 \u27668 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u39046 \u23548 \u21147 \u22521 \u20859 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u25104 \u38271 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56401 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u21457 \u23637 \u33258 \u24049 \u30340 \u31649 \u29702 \u39118 \u26684 \u12289 \u22899 \u24615 \u20844 \u20849 \u34920 \u36798 \u25216 \u24039 \u12290 \u35753 \u22768 \u38899 \u26356 \u26377 \u21147 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4               </div>\cb1 \
+\cb4             </div>\cb1 \
+\
+\cb4             \{\cf7 \strokec7 /* 4. \uc0\u29983 \u27963 \u19982 \u33258 \u25105  */\cf0 \strokec2 \}\cb1 \
+\cb4             <div className=\cf6 \strokec6 "mb-32"\cf0 \strokec2 >\cb1 \
+\cb4               <\cf5 \strokec5 SectionHeader\cf0 \strokec2  title=\cf6 \strokec6 "\uc0\u29983 \u27963 \u19982 \u33258 \u25105 "\cf0 \strokec2  subtitle=\cf6 \strokec6 "Life & Self"\cf0 \strokec2  id=\cf6 \strokec6 "life-self"\cf0 \strokec2  reverse />\cb1 \
+\cb4               <div className=\cf6 \strokec6 "grid grid-cols-1 md:grid-cols-3 gap-8"\cf0 \strokec2 >\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u29702 \u24819 \u29983 \u27963 \u23478 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u29983 \u27963 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55356 \u57313 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u29420 \u23621 \u29983 \u27963 \u25351 \u21335 \u12289 \u19969 \u20811 \u25506 \u35752 \u12289 \u22810 \u20803 \u23478 \u24237 \u24418 \u24577 \u12290 \u25506 \u32034 \u20027 \u27969 \u22806 \u30340 \u26679 \u26412 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u24773 \u32490 \u21171 \u21160 \u38388 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u20851 \u31995 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55358 \u56826 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1516533075015-a3838414c3ca?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u22914 \u20309 \u22312 \u23478 \u24237 \u20013 \u24179 \u34913 \u23478 \u21153 \u19982 \u24773 \u24863 \u20184 \u20986 \u12289 \u25298 \u32477 \'93\u36132 \u24800 \'94\u32465 \u26550 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u33258 \u25105 \u29031 \u39038 \u26415 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u33298 \u21387 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56687 \u65039 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u27599 \u26085  Me Time \u28165 \u21333 \u12289 \u24863 \u23448 \u24841 \u24742 \u25351 \u21335 \u12289 \u25298 \u32477 \u31934 \u31070 \u20869 \u32791 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4               </div>\cb1 \
+\cb4             </div>\cb1 \
+\
+\cb4             \{\cf7 \strokec7 /* 5. \uc0\u25991 \u33402 \u19982 \u36830 \u25509  */\cf0 \strokec2 \}\cb1 \
+\cb4             <div className=\cf6 \strokec6 "mb-32"\cf0 \strokec2 >\cb1 \
+\cb4               <\cf5 \strokec5 SectionHeader\cf0 \strokec2  title=\cf6 \strokec6 "\uc0\u25991 \u33402 \u19982 \u36830 \u25509 "\cf0 \strokec2  subtitle=\cf6 \strokec6 "Art & Voices"\cf0 \strokec2  id=\cf6 \strokec6 "art-muse"\cf0 \strokec2  />\cb1 \
+\cb4               <div className=\cf6 \strokec6 "grid grid-cols-1 md:grid-cols-3 gap-8"\cf0 \strokec2 >\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u20809 \u24433 \u20070 \u31546 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u23457 \u32654 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56538 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u35910 \u29923 \u39640 \u20998 \u22899 \u24615 \u20027 \u20041 \u24433 \u21333 /\u20070 \u21333 \u12289 \u21338 \u20027 \u25512 \u33616 \u12290 \u22312 \u33402 \u26415 \u20013 \u27762 \u21462 \u28789 \u24863 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u20256 \u22855 \u35775 \u35848 \u24405 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u20154 \u29289 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55356 \u57252 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "50\uc0\u20301 \u25913 \u21464 \u19990 \u30028 \u30340 \u22899 \u24615 \u35775 \u35848 \u12289 \u26222 \u36890 \u20154 \u30340 \u38378 \u20809 \u26102 \u21051 \u12290 \u21548 \u35265 \u22905 \u30340 \u21147 \u37327 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                 />\cb1 \
+\cb4                 <\cf5 \strokec5 FeatureCard\cf0 \strokec2  \cb1 \
+\cb4                   title=\cf6 \strokec6 "\uc0\u22992 \u22969 \u30041 \u35328 \u26495 "\cf0 \strokec2  \cb1 \
+\cb4                   category=\cf6 \strokec6 "\uc0\u31038 \u21306 "\cf0 \cb1 \strokec2 \
+\cb4                   icon=\cf6 \strokec6 "\uc0\u55357 \u56460 "\cf0 \cb1 \strokec2 \
+\cb4                   image=\cf6 \strokec6 "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800"\cf0 \cb1 \strokec2 \
+\cb4                   description=\cf6 \strokec6 "\uc0\u21311 \u21517 \u20114 \u21160 \u21306 \u12289 \u20849 \u21516 \u26641 \u27934 \u12289 \u32463 \u39564 \u20114 \u21161 \u36148 \u12290 \u25105 \u20204 \u36830 \u25104 \u20102 \u22823 \u38470 \u12290 "\cf0 \cb1 \strokec2 \
+\cb4                   onClick=\{() => navigateTo(\cf6 \strokec6 'community'\cf0 \strokec2 )\}\cb1 \
+\cb4                 />\cb1 \
+\cb4               </div>\cb1 \
+\cb4             </div>\cb1 \
+\
+\cb4           </div>\cb1 \
+\cb4         </section>\cb1 \
+\
+\cb4         <\cf5 \strokec5 GeminiCompanion\cf0 \strokec2  />\cb1 \
+\
+\cb4         <div id=\cf6 \strokec6 "board"\cf0 \strokec2 >\cb1 \
+\cb4           <\cf5 \strokec5 MessageBoard\cf0 \strokec2  />\cb1 \
+\cb4         </div>\cb1 \
+\cb4       </main>\cb1 \
+\
+\cb4       <footer className=\cf6 \strokec6 "bg-forest text-cream/40 py-12 px-6 border-t border-cream/5"\cf0 \strokec2 >\cb1 \
+\cb4         <div className=\cf6 \strokec6 "max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0"\cf0 \strokec2 >\cb1 \
+\cb4           <div className=\cf6 \strokec6 "text-center md:text-left"\cf0 \strokec2 >\cb1 \
+\cb4             <h3 className=\cf6 \strokec6 "text-cream text-lg font-serif font-bold mb-2"\cf0 \strokec2 >\cf9 \strokec9 \uc0\u29702 \u24819 \u23707 \cf0 \strokec2  \cf5 \strokec5 HerSpace\cf0 \strokec2 </h3>\cb1 \
+\cb4             <p className=\cf6 \strokec6 "text-xs max-w-xs font-light"\cf0 \strokec2 >\cb1 \
+\cb4               \cf9 \strokec9 \uc0\u22312 \u36825 \u37324 \u65292 \u27599 \u20010 \u20154 \u37117 \u26159 \u19968 \u24231 \u23707 \u23679 \u65292 \u20294 \u36890 \u36807 \u23545 \u35805 \u65292 \u25105 \u20204 \u36830 \u25104 \u20102 \u22823 \u38470 \u12290 \cf0 \cb1 \strokec2 \
+\cb4             </p>\cb1 \
+\cb4           </div>\cb1 \
+\cb4           <div className=\cf6 \strokec6 "flex space-x-6 text-xs uppercase tracking-widest"\cf0 \strokec2 >\cb1 \
+\cb4             <a href=\cf6 \strokec6 "#"\cf0 \strokec2  className=\cf6 \strokec6 "hover:text-gold transition-colors"\cf0 \strokec2 >\cf9 \strokec9 \uc0\u38544 \u31169 \u25919 \u31574 \cf0 \strokec2 </a>\cb1 \
+\cb4             <a href=\cf6 \strokec6 "#"\cf0 \strokec2  className=\cf6 \strokec6 "hover:text-gold transition-colors"\cf0 \strokec2 >\cf9 \strokec9 \uc0\u21152 \u20837 \u25105 \u20204 \cf0 \strokec2 </a>\cb1 \
+\cb4             <a href=\cf6 \strokec6 "#"\cf0 \strokec2  className=\cf6 \strokec6 "hover:text-gold transition-colors"\cf0 \strokec2 >\cf9 \strokec9 \uc0\u32852 \u31995 \u21512 \u20316 \cf0 \strokec2 </a>\cb1 \
+\cb4           </div>\cb1 \
+\cb4           <p className=\cf6 \strokec6 "text-[10px]"\cf0 \strokec2 >&copy; \cf8 \strokec8 2026\cf0 \strokec2  \cf9 \strokec9 \uc0\u29702 \u24819 \u23707 \cf0 \strokec2  \cf5 \strokec5 HerSpace\cf0 \strokec2  | \cf9 \strokec9 \uc0\u38506 \u20320 \u19968 \u36215 \u21521 \u19978 \u29983 \u38271 \cf0 \strokec2 </p>\cb1 \
+\cb4         </div>\cb1 \
+\cb4       </footer>\cb1 \
+\cb4     </div>\cb1 \
+\cb4   );\cb1 \
+\cb4 \};\cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 export\cf0 \strokec2  \cf3 \strokec3 default\cf0 \strokec2  \cf5 \strokec5 App\cf0 \strokec2 ;\cb1 \
+\
+}
